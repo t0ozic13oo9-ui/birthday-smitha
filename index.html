@@ -179,7 +179,7 @@
       font-weight: 700;
       text-align: center;
       position: absolute;
-      top: 50px;
+      top: 10vh; /* Adjusted for better visibility on mobile */
       width: 100%;
       z-index: 1;
     }
@@ -187,7 +187,8 @@
       position: relative;
       width: 350px;
       height: 300px;
-      margin: 200px 0 20px 0;
+      margin-top: 30vh; /* Adjusted to move cake down */
+      margin-bottom: 20px;
       z-index: 1;
       cursor: pointer;
     }
@@ -477,7 +478,7 @@
         createBalloons();
         createConfetti();
         createSparkles();
-        audio.play().catch(console.error);
+        // audio.play().catch(console.error); // Moved this line
         const countdownEl = document.getElementById('countdownText');
         countdownEl.textContent = 'Make a Wish and tap on the cake!';
         document.getElementById('cakeContainer').addEventListener('click', startCountdown, { once: true });
@@ -501,6 +502,7 @@
     function startCountdown() {
       const countdownEl = document.getElementById('countdownText');
       const flame = document.getElementById('flame');
+      audio.play().catch(console.error); // Audio now plays when cake is tapped
       countDownTimer();
 
       function countDownTimer() {
